@@ -18,24 +18,38 @@ class App extends Component {
                     />
                     <Query<{ sessions: Session[] }> query={FETCH_SESSIONS}>
                         {result => {
-                            return result.data && result.data.sessions
-                                ? result.data.sessions
-                                      .filter(session => !session.cancelled)
-                                      .map(session =>
-                                          session.location && session.location.lat && session.location.lng ? (
-                                              <Marker
-                                                  key={session.key}
-                                                  position={{ lng: session.location.lng, lat: session.location.lat }}
-                                              >
-                                                  <Popup>
-                                                      {session.title}
-                                                      <br />
-                                                      by {session.host.name}
-                                                  </Popup>
-                                              </Marker>
-                                          ) : null
-                                      )
-                                : null;
+                            if (!result.data || !result.data.sessions) {
+                                return null;
+                            }
+
+                            return result.data.sessions
+                                .filter(session => !session.cancelled)
+                                .map(session => {
+                                    if (!session.location || !session.location.lat || !session.location.lng) {
+                                        return null;
+                                    }
+
+                                    const parts = session.location.name
+                                        .split(/\n/)
+                                        .map((x: string) => x.trim())
+                                        .filter((x: string) => x);
+
+                                    return (
+                                        <Marker
+                                            key={session.key}
+                                            position={{ lng: session.location.lng, lat: session.location.lat }}
+                                        >
+                                            <Popup>
+                                                <h3 className="session title">{session.title}</h3>
+                                                <p className="session host">{session.host.name}</p>
+                                                {session.host.name.trim() !== parts[0].trim() && (
+                                                    <p className="session location name">{parts[0]}</p>
+                                                )}
+                                                <p className="session location address">{parts.slice(1).join(', ')}</p>
+                                            </Popup>
+                                        </Marker>
+                                    );
+                                });
                         }}
                     </Query>
                 </Map>
