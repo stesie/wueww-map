@@ -42,7 +42,7 @@ class App extends Component {
                                             <Popup>
                                                 <h3 className="session title">{session.title}</h3>
                                                 <p className="session host">{session.host.name}</p>
-                                                {session.host.name.trim() !== parts[0].trim() && (
+                                                {!session.host.name.trim().startsWith(parts[0].trim()) && (
                                                     <p className="session location name">{parts[0]}</p>
                                                 )}
                                                 <p className="session location address">{parts.slice(1).join(', ')}</p>
