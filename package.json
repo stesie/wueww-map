@@ -1,44 +1,45 @@
 {
-  "name": "wueww-map",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/graphql": "^14.0.7",
-    "@types/jest": "24.0.11",
-    "@types/node": "11.11.5",
-    "@types/react": "16.8.8",
-    "@types/react-dom": "16.8.3",
-    "@types/react-leaflet": "^2.2.1",
-    "apollo-cache-inmemory": "^1.5.1",
-    "apollo-client": "^2.5.1",
-    "apollo-link": "^1.2.11",
-    "apollo-link-rest": "^0.7.0",
-    "graphql": "^14.1.1",
-    "graphql-anywhere": "^4.2.1",
-    "graphql-tag": "^2.10.1",
-    "leaflet": "^1.4.0",
-    "prettier": "^1.16.4",
-    "react": "^16.8.4",
-    "react-apollo": "^2.5.2",
-    "react-dom": "^16.8.4",
-    "react-leaflet": "^2.2.1",
-    "react-scripts": "2.1.8",
-    "typescript": "3.3.4000"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prettier": "prettier --write '**/*.ts' '**/*.tsx'"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "wueww-map",
+    "version": "0.1.0",
+    "homepage": "http://stesie.github.io/wueww-map",
+    "private": true,
+    "dependencies": {
+        "@types/graphql": "^14.0.7",
+        "@types/jest": "24.0.11",
+        "@types/node": "11.11.5",
+        "@types/react": "16.8.8",
+        "@types/react-dom": "16.8.3",
+        "@types/react-leaflet": "^2.2.1",
+        "apollo-cache-inmemory": "^1.5.1",
+        "apollo-client": "^2.5.1",
+        "apollo-link": "^1.2.11",
+        "apollo-link-rest": "^0.7.0",
+        "graphql": "^14.1.1",
+        "graphql-anywhere": "^4.2.1",
+        "graphql-tag": "^2.10.1",
+        "leaflet": "^1.4.0",
+        "prettier": "^1.16.4",
+        "react": "^16.8.4",
+        "react-apollo": "^2.5.2",
+        "react-dom": "^16.8.4",
+        "react-leaflet": "^2.2.1",
+        "react-scripts": "2.1.8",
+        "typescript": "3.3.4000"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "prettier": "prettier --write '**/*.ts' '**/*.tsx'"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
 }
