@@ -1,5 +1,3 @@
-import './index.css';
-
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
 import { RestLink } from 'apollo-link-rest';
@@ -27,12 +25,6 @@ const client = new ApolloClient({
     link: restLink,
     cache: new InMemoryCache(),
 });
-
-/*
-client.query<{ sessions: Session[] }>({ query: FETCH_SESSIONS }).then(response => {
-    console.log('foo', response.data.sessions);
-});
-*/
 
 ReactDOM.render(
     <ApolloProvider client={client}>
