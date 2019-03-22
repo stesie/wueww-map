@@ -1,0 +1,19 @@
+.session.title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.session.host {
+    margin-top: 0rem;
+    color: grey;
+}
+
+.session.location.name {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.session.location.address {
+    margin-top: 0;
+}

@@ -1,4 +1,5 @@
 import 'leaflet/dist/leaflet.css';
+import './App.css';
 
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
