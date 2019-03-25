@@ -25,10 +25,8 @@ class App extends Component {
 
                             return result.data.sessions
                                 .filter(session => !session.cancelled)
+                                .filter(session => session.location && session.location.lat && session.location.lng)
                                 .map(session => {
-                                    if (!session.location || !session.location.lat || !session.location.lng) {
-                                        return null;
-                                    }
 
                                     const parts = session.location.name
                                         .split(/\n/)
@@ -38,9 +36,8 @@ class App extends Component {
                                     return (
                                         <Marker
                                             key={session.key}
-                                            position={{ lng: session.location.lng, lat: session.location.lat }}
+                                            position={{ lng: session.location!.lng!, lat: session.location!.lat! }}
                                         >
-                                            <Popup>
                                                 <h3 className="session title">{session.title}</h3>
                                                 <p className="session host">{session.host.name}</p>
                                                 {!session.host.name.trim().startsWith(parts[0].trim()) && (
