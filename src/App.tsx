@@ -3,9 +3,10 @@ import './App.css';
 
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Map, Marker, TileLayer } from 'react-leaflet';
 
 import Session from './model/Session';
+import Popup from './Popup';
 import { FETCH_SESSIONS } from './queries';
 
 class App extends Component {
@@ -27,24 +28,12 @@ class App extends Component {
                                 .filter(session => !session.cancelled)
                                 .filter(session => session.location && session.location.lat && session.location.lng)
                                 .map(session => {
-
-                                    const parts = session.location.name
-                                        .split(/\n/)
-                                        .map((x: string) => x.trim())
-                                        .filter((x: string) => x);
-
                                     return (
                                         <Marker
                                             key={session.key}
                                             position={{ lng: session.location!.lng!, lat: session.location!.lat! }}
                                         >
-                                                <h3 className="session title">{session.title}</h3>
-                                                <p className="session host">{session.host.name}</p>
-                                                {!session.host.name.trim().startsWith(parts[0].trim()) && (
-                                                    <p className="session location name">{parts[0]}</p>
-                                                )}
-                                                <p className="session location address">{parts.slice(1).join(', ')}</p>
-                                            </Popup>
+                                            <Popup {...session} />
                                         </Marker>
                                     );
                                 });
