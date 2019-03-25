@@ -22,19 +22,28 @@ const App: FunctionComponent = () => (
                         return null;
                     }
 
-                    return result.data.sessions
-                        .filter(session => !session.cancelled)
-                        .filter(session => session.location && session.location.lat && session.location.lng)
-                        .map(session => {
-                            return (
-                                <Marker
-                                    key={session.key}
-                                    position={{ lng: session.location!.lng!, lat: session.location!.lat! }}
-                                >
-                                    <Popup {...session} />
-                                </Marker>
-                            );
-                        });
+                    return Object.values(
+                        result.data.sessions
+                            .filter(session => !session.cancelled)
+                            .filter(session => session.location && session.location.lat && session.location.lng)
+                            .reduce(
+                                (acc, session) => {
+                                    const key = [session.location!.lat, session.location!.lng].join('#');
+                                    return { ...acc, [key]: [...(acc[key] || []), session] };
+                                },
+                                {} as { [key: string]: Session[] }
+                            )
+                    ).map((partitionedSessions: Session[]) => (
+                        <Marker
+                            key={partitionedSessions[0].key}
+                            position={{
+                                lng: partitionedSessions[0].location!.lng!,
+                                lat: partitionedSessions[0].location!.lat!,
+                            }}
+                        >
+                            <Popup sessions={partitionedSessions} />
+                        </Marker>
+                    ));
                 }}
             </Query>
         </Map>
