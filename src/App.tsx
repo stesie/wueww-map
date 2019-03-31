@@ -13,7 +13,7 @@ const App: FunctionComponent = () => (
     <div className="App" style={{ height: '100vh', width: '100vw' }}>
         <Map center={{ lng: 9.9602, lat: 49.7879 }} zoom={14} style={{ height: '100vh', width: '100vw' }}>
             <TileLayer
-                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Made by Rolf, <a href="impressum.html">Impressum</a>.'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Query<{ sessions: Session[] }> query={FETCH_SESSIONS}>
