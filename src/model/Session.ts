@@ -1,4 +1,4 @@
-interface Session {
+export default interface Session {
     key: string;
     start: string;
     end: string | null;
@@ -14,4 +14,8 @@ interface Session {
     };
 }
 
-export default Session;
+export function startTimeComparator(a: Session, b: Session) {
+    if (a.start < b.start) return -1;
+    if (a.start > b.start) return 1;
+    return 0;
+}
