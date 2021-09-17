@@ -2,8 +2,8 @@ import gql from 'graphql-tag';
 
 export const FETCH_SESSIONS = gql`
     query FETCH_SESSIONS {
-        sessions @rest(type: "Session", path: "fahrplan-2019/sessions.json") {
-            key
+        sessions @rest(type: "Session", path: "/export/session.json") {
+            id
             start
             end
             cancelled

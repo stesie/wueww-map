@@ -1,5 +1,5 @@
 export default interface Session {
-    key: string;
+    id: number;
     start: string;
     end: string | null;
     cancelled: boolean;

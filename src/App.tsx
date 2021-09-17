@@ -35,7 +35,7 @@ const App: FunctionComponent = () => (
                             )
                     ).map((partitionedSessions: Session[]) => (
                         <Marker
-                            key={partitionedSessions[0].key}
+                            key={partitionedSessions[0].id}
                             position={{
                                 lng: partitionedSessions[0].location!.lng!,
                                 lat: partitionedSessions[0].location!.lat!,

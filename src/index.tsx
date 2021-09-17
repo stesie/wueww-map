@@ -17,7 +17,7 @@ delete (window as any).L.Icon.Default.prototype._getIconUrl;
 });
 
 const restLink = new RestLink({
-    uri: 'https://wueww.github.io/',
+    uri: 'https://backend.timetable.wueww.de',
     responseTransformer: async response => response.json().then(({ sessions }: { sessions: any }) => sessions),
 });
 
