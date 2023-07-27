@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wueww-map/static/css/main.f98915a0.css",
+    "main.js": "/wueww-map/static/js/main.aa3a2a60.js",
+    "index.html": "/wueww-map/index.html",
+    "main.f98915a0.css.map": "/wueww-map/static/css/main.f98915a0.css.map",
+    "main.aa3a2a60.js.map": "/wueww-map/static/js/main.aa3a2a60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f98915a0.css",
+    "static/js/main.aa3a2a60.js"
+  ]
+}
